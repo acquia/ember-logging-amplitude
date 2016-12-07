@@ -19,8 +19,8 @@ export default Ember.Service.extend({
 
   /**
    * A callback that is used to generate the amplititude specific context
-   * from an event.  This should data required for setting the context on
-   * Amplitude.
+   * from an event.  This should include the data required for setting the
+   * context on Amplitude.
    *
    * The callback will receive the event context as a paramter and should return
    * an object with the following keys:
