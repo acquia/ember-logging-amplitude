@@ -74,10 +74,10 @@ export default Ember.Service.extend({
 
     let service = this.get('amplitude');
     if (ampContext.applicationVersion) {
-      service.setApplicationVersion(ampContext.applicationVersion); 
+      service.setApplicationVersion(ampContext.applicationVersion);
     }
     if (ampContext.userId) {
-      service.setUserId(ampContext.userId); 
+      service.setUserId(ampContext.userId);
     }
     if (ampContext.userProperties) {
       service.setUserProperties(ampContext.userProperties);
