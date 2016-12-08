@@ -15,5 +15,5 @@ export default function registerLoggingConsumer(instance, config) {
   consumerService = instance.lookup('service:amplitudeLoggingConsumer');
   loggingService.registerTags(addonOptions.tags);
   levels = addonOptions.levels || loggingService.levels.info;
-  loggingService.registerConsumer('ember-logging-amplitude', [consumerService.get('loggerCallback'), consumerService], levels, addonOptions.tags, config.environment);
+  loggingService.registerConsumer('ember-logging-amplitude', [consumerService.get('loggerCallback'), consumerService], levels, addonOptions.tags);
 }
