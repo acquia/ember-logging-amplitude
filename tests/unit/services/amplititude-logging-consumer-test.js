@@ -41,7 +41,7 @@ QUnit.test('it sends events to amplitude but context only once.', function(asser
   };
   let consumer = AmplitudeLoggingConsumer.create({
     amplitude: service,
-    amplitudeContextCallback: ampContextCallback
+    applicationContextCallback: ampContextCallback
   });
   let sendEvent = {
     name: 'nope nope',

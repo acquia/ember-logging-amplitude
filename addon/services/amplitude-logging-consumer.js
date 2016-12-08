@@ -28,11 +28,11 @@ export default Ember.Service.extend({
    *   userId              An ID for the current user
    *   userProperties      An object of user properties to be stored
    *
-   * @property amplitudeContextCallback
+   * @property applicationContextCallback
    * @type {Function}
    * @public
    */
-  amplitudeContextCallback: null,
+  applicationContextCallback: null,
 
   /**
    * Overrides Service.init to set up event listeners.
@@ -66,7 +66,7 @@ export default Ember.Service.extend({
     if (this._contextSent) {
       return;
     }
-    let callback = this.get('amplitudeContextCallback');
+    let callback = this.get('applicationContextCallback');
     if (Ember.typeOf(callback) !== 'function') {
       return;
     }
