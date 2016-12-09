@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.Service.extend({
+const {
+  inject,
+  Service,
+  typeOf
+} = Ember;
+
+export default Service.extend({
   /**
    * Indicates if the application/user context has been sent yet.
    * @property _contextSent
@@ -15,7 +21,7 @@ export default Ember.Service.extend({
    * @type {Service}
    * @public
    */
-  amplitude: Ember.inject.service(),
+  amplitude: inject.service(),
 
   /**
    * A callback that is used to generate the amplititude specific context
@@ -45,6 +51,8 @@ export default Ember.Service.extend({
 
   /**
    * Amplitude callback function for logger
+   * @method  loggerCallback
+   * @public
    * @param  {Object} event   logger event object
    * @param  {Object} context Application and user context
    */
@@ -67,7 +75,7 @@ export default Ember.Service.extend({
       return;
     }
     let callback = this.get('applicationContextCallback');
-    if (Ember.typeOf(callback) !== 'function') {
+    if (typeOf(callback) !== 'function') {
       return;
     }
     let ampContext = callback(context);

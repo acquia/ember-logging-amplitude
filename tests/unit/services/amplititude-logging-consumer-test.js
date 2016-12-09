@@ -2,6 +2,10 @@ import QUnit from 'qunit';
 import Ember from 'ember';
 import AmplitudeLoggingConsumer from 'ember-logging-amplitude/services/amplitude-logging-consumer';
 
+const {
+  Object: emberObject
+} = Ember;
+
 QUnit.module('Unit | Service | amplitude-logging-consumer');
 
 QUnit.test('it has publicly accessible methods.', function(assert) {
@@ -14,7 +18,7 @@ QUnit.test('it has publicly accessible methods.', function(assert) {
 QUnit.test('it sends events to amplitude but context only once.', function(assert) {
   assert.expect(9);
 
-  let service = Ember.Object.create({
+  let service = emberObject.create({
     setApplicationVersion(version) {
       assert.equal(version, '1.0', 'Version number is set.');
     },
@@ -34,8 +38,8 @@ QUnit.test('it sends events to amplitude but context only once.', function(asser
       applicationVersion: context.application.version,
       userId: context.user.id,
       userProperties: {
-        account_id: context.application.clientId,
-        site_id: context.application.siteId
+        account_id: context.application.clientId, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
+        site_id: context.application.siteId // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
       }
     };
   };

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Service.extend({
+const { Service } = Ember;
+
+export default Service.extend({
   /**
    * A reference to the amplitude SDK.
    * @property api

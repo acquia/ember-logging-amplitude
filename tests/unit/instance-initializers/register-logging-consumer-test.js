@@ -3,25 +3,29 @@ import registerLoggingConsumer from 'ember-logging-amplitude/instance-initialize
 import AmplititudeLoggingConsumer from 'ember-logging-amplitude/services/amplitude-logging-consumer';
 import Ember from 'ember';
 
+const {
+  isArray,
+  Service
+} = Ember;
+
 module('Unit | Instance Initializers | register-logging-consumer');
 
 test('it configures the logging consumer', function(assert) {
-  assert.expect(6);
+  assert.expect(5);
 
   let environmentMock = {
-    environment: 'unit-testing',
     'ember-logging-amplitude': {
       enabled: true,
+      apiKey: 'my-api-key',
       tags: ['tag-1', 'tag-2']
     }
   };
-  let loggerMock = Ember.Service.create({
-    registerConsumer(id, callback, levels, tags, environment) {
+  let loggerMock = Service.create({
+    registerConsumer(id, callback, levels, tags) {
       assert.equal(id, 'ember-logging-amplitude', 'Consumer is given a unique ID.');
-      assert.ok(Ember.isArray(callback), 'A callback array is provided.');
+      assert.ok(isArray(callback), 'A callback array is provided.');
       assert.equal(levels, 'info', 'The default level is provided.');
       assert.deepEqual(tags, ['tag-1', 'tag-2'], 'Tags are passed through.');
-      assert.equal(environment, 'unit-testing', 'The current environment is sent.');
     },
     registerTags(tags) {
       assert.deepEqual(tags, ['tag-1', 'tag-2'], 'Tags are registered.');
@@ -34,7 +38,7 @@ test('it configures the logging consumer', function(assert) {
   let instanceMock = {
     lookup(factoryName) {
       if (factoryName === 'service:amplitudeLoggingConsumer') {
-        return consumer;        
+        return consumer;
       }
       if (factoryName === 'service:logger') {
         return loggerMock;

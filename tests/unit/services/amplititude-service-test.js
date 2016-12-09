@@ -2,6 +2,8 @@ import QUnit from 'qunit';
 import Ember from 'ember';
 import Amplitude from 'ember-logging-amplitude/services/amplitude';
 
+const { Service } = Ember;
+
 QUnit.module('Unit | Service | ember-cli-amplitude amplitude');
 
 QUnit.test('it has publically accessible methods', function(assert) {
@@ -18,7 +20,7 @@ QUnit.test('it has publically accessible methods', function(assert) {
 QUnit.test('it can set the user identity', function(assert) {
   assert.expect(1);
 
-  let apiMock = Ember.Service.create({
+  let apiMock = Service.create({
     setUserId(userId) {
       assert.equal(userId, 'Gonzo', 'The user id has been set on the api.');
     }
@@ -31,7 +33,7 @@ QUnit.test('it can set the user identity', function(assert) {
 QUnit.test('it can clear the user identity', function(assert) {
   assert.expect(1);
 
-  let apiMock = Ember.Service.create({
+  let apiMock = Service.create({
     setUserId(userId) {
       assert.equal(userId, null, 'The user id has been cleared on the api.');
     }
@@ -44,7 +46,7 @@ QUnit.test('it can clear the user identity', function(assert) {
 QUnit.test('it can set the application version', function(assert) {
   assert.expect(1);
 
-  let apiMock = Ember.Service.create({
+  let apiMock = Service.create({
     getInstance() {
       return {
         setVersionName(name) {
@@ -67,7 +69,7 @@ QUnit.test('it can set user properties', function(assert) {
     'job': 'Balloon vendor'
   };
 
-  let apiMock = Ember.Service.create({
+  let apiMock = Service.create({
     getInstance() {
       return {
         setUserProperties(props) {
@@ -88,7 +90,7 @@ QUnit.test('it can send events', function(assert) {
     'location': 'County Fair'
   };
 
-  let apiMock = Ember.Service.create({
+  let apiMock = Service.create({
     getInstance() {
       return {
         logEvent(name, data) {
