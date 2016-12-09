@@ -5,8 +5,8 @@ export default {
   name: 'register-amplitude-logging-consumer',
   after: 'ember-logging-amplitude',
   initialize(applicationInstance) {
-    // Set up a callback that transforms pulls the relevant Amplititude
-    // application/user data from the lift tools provided context.
+    // Set up a callback that pulls the relevant Amplititude application/user
+    // data from the application provided context.
     let consumer = applicationInstance.lookup('service:amplitudeLoggingConsumer');
 
     /**
