@@ -1,10 +1,14 @@
+import Ember from 'ember';
+
+const { isEmpty } = Ember;
+
 // Read any configuration values from the environment configuration and user
 // them to register the amplitidude service as a logging consumer
 export default function registerLoggingConsumer(instance, config) {
   let loggingService, consumerService, levels;
 
   let addonOptions = config['ember-logging-amplitude'];
-  if (!addonOptions.enabled) {
+  if (!addonOptions.enabled || isEmpty(addonOptions.apiKey)) {
     return;
   }
   if (!addonOptions.tags) {
