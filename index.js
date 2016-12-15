@@ -3,9 +3,6 @@
 
 module.exports = {
   name: 'ember-logging-amplitude',
-  isDevelopingAddon: function() {
-    return true;
-  },
 
   contentFor(type, config) {
     if (type !== 'head') {
