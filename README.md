@@ -1,4 +1,4 @@
-# ember-logging-amplitude
+# ember-logging-amplitude [![Build Status](https://travis-ci.com/acquia/ember-logging-amplitude.svg?token=xpbhY9xz7Z9aqH5aUfgP&branch=master)](https://travis-ci.com/acquia/ember-logging-amplitude)
 
 This addon provides a logging consumer for the [ember-logging-service](https://github.com/acquia/ember-logging-service/) addon.
 The consumer handles sending user events to [Amplitude](https://amplitude.com/).
