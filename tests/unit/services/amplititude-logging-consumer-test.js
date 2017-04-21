@@ -26,7 +26,7 @@ QUnit.test('it sends events to amplitude but context only once.', function(asser
       assert.equal(userId, 'yep yep', 'User id is set.');
     },
     setUserProperties(props) {
-      assert.deepEqual(props, { account_id: 'monsters', site_id: 'sesame' }); // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
+      assert.deepEqual(props, { account_id: 'monsters', site_id: 'sesame' }); // eslint-disable-line camelcase
     },
     sendEvent(name, data) {
       assert.equal(name, 'nope nope', 'Event name is sent.');
@@ -38,8 +38,8 @@ QUnit.test('it sends events to amplitude but context only once.', function(asser
       applicationVersion: context.application.version,
       userId: context.user.id,
       userProperties: {
-        account_id: context.application.clientId, // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
-        site_id: context.application.siteId // jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
+        account_id: context.application.clientId, // eslint-disable-line camelcase
+        site_id: context.application.siteId // eslint-disable-line camelcase
       }
     };
   };
