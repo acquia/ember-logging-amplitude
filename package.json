@@ -1,6 +1,6 @@
 {
   "name": "ember-logging-amplitude",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A plugin for ember-logging-service to send events to Amplititude",
   "keywords": [
     "ember-addon",
