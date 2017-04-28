@@ -8,6 +8,11 @@ The consumer handles sending user events to [Amplitude](https://amplitude.com/).
 First you must install the ember-logging-service addon and follow instructions
 to add application and user context callbacks.
 
+```
+ember install ember-logging-service
+ember install ember-logging-amplitude
+```
+
 There are two parts to configuring the Amplitude logging consumer.  Setting up the
 credentials and setting up the application-specific information to send to
 Amplitude.
