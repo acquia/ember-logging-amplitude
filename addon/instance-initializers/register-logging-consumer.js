@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const { isEmpty } = Ember;
 
-// Read any configuration values from the environment configuration and user
+// Read any configuration values from the environment configuration and use
 // them to register the amplitidude service as a logging consumer
 export default function registerLoggingConsumer(instance, config) {
   let loggingService, consumerService, levels;
